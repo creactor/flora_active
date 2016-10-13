@@ -23,9 +23,10 @@
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+
   </tbody>
 </table>
 
 <br>
-
+<%= link_to 'Login', new_user_session_path, remote: true, action: 'devise/sessions#new'%>
 <%= link_to 'New Event', new_event_path %>

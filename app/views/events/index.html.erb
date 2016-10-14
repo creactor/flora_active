@@ -26,7 +26,12 @@
 
   </tbody>
 </table>
-
+<%= render 'devise/sessions/form_event' %>
 <br>
-<%= link_to 'Login', new_user_session_path, remote: true, action: 'devise/sessions#new'%>
+<%= link_to 'Login', new_user_session_path, remote: true, action: 'devise/sessions#new', onclick: 'openModal()'%>
+<script>
+function openModal(){
+  $("#myModal").modal('show');
+}
+</script>
 <%= link_to 'New Event', new_event_path %>

@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+ /*
+
+
+ @font-face {
+     font-family:;
+     src: url();
+ }*/
+a.display:hover {
+    text-decoration: none;
+    color : black;
+}
+.card{
+  padding-top: 20px;
+}

@@ -2,7 +2,42 @@
 
 <h1>Listing Events</h1>
 
-<table>
+<div class="container">
+<% @events.each do |event| %>
+  <div class="row card">
+    <%= link_to  'events/'+ event.id.to_s, method: 'get', class: 'display' do%>
+    <div class="col-lg-8">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title row">
+            <div class="col-md-6">
+              <%= event.name%>
+            </div>
+            <div class="pull-right">
+              by event.creator
+            </div>
+          </h3>
+        </div>
+        <div>
+          <%= event.content %>
+        </div>
+        <div class="panel-footer pull-right">
+          <div>
+            event.date
+          </div>
+        </div>
+        <div class="panel-footer pull-left">
+          <div>
+            ID : <%= event.id%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+<% end %>
+</div>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -26,9 +61,6 @@
 
   </tbody>
 </table>
-<%= render 'devise/sessions/form_event' %>
-<br>
-<%= link_to 'Login', new_user_session_path, remote: true, action: 'devise/sessions#new', onclick: 'openModal()'%>
 <script>
 function openModal(){
   $("#myModal").modal('show');

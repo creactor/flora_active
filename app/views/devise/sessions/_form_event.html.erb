@@ -3,7 +3,7 @@
     <div class="modal-content">
       <div class="bs-example bs-example-tabs">
           <ul id="myTab" class="nav nav-tabs">
-            <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+            <li class="active"><a href="#signin" data-toggle="tab">Login</a></li>
             <li class=""><a href="#signup" data-toggle="tab">Sign Up</a></li>
           </ul>
       </div>
@@ -12,7 +12,7 @@
           <div class="tab-pane fade active in" id="signin">
             <!-- Sign In Form -->
             <!-- Text input-->
-            <h2>Sign In</h2>
+            <h2>Login</h2>
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
               <div class="field">
                 <%= f.label :email %><br />

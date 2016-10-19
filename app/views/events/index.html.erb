@@ -1,8 +1,46 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Events</h1>
+<nav class="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Flora Active</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Logo</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <a><p id="notice"><%= notice %></p></a>
+      </li>
+      <% if user_signed_in? %>
+        <li>
+          <a><%= current_user.email %></a>
+        </li>
+        <li>
+          <%= link_to 'Logout', destroy_user_session_path, method: 'delete' %>
+        </li>
+      <% end %>
+        <% if !user_signed_in? %>
+        <li>
+          <%= render 'devise/sessions/form_event' %>
+          <%= link_to 'Login or sign up', new_user_session_path, remote: true, action: 'devise/sessions#new', onclick: 'openModal()'%>
+        </li>
+        <% end %>
+    </ul>
+  </div>
+</nav>
+<nav class="navbar menu center-block">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><%= link_to  'Начало', method: 'get'%></li>
+      <li><%= link_to  'Резервация', method: 'get'%></li>
+      <li><%= link_to  'Програма', method: 'get'%></li>
+      <li><%= link_to  'Информация', method: 'get'%></li>
+    </ul>
+  </div>
+</nav>
 
 <div class="container">
+<h1>Listing Events</h1>
 <% @events.each do |event| %>
   <div class="row card">
     <%= link_to  'events/'+ event.id.to_s, method: 'get', class: 'display' do%>
@@ -11,7 +49,7 @@
         <div class="panel-heading">
           <h3 class="panel-title row">
             <div class="col-md-6">
-              <%= event.name%>
+              <%= event.name %>
             </div>
             <div class="pull-right">
               by event.creator
@@ -28,7 +66,7 @@
         </div>
         <div class="panel-footer pull-left">
           <div>
-            ID : <%= event.id%>
+            ID : <%= event.id %>
           </div>
         </div>
       </div>

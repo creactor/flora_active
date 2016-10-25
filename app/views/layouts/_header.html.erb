@@ -1,0 +1,41 @@
+<nav class="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Flora Active</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li>
+        <a>Logo</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to 'New Event', new_event_path %>
+        </li>
+        <li>
+          <a>  <%=  image_tag 'user.png', width: '25', height:'25' %> <%= current_user.email %></a>
+        </li>
+        <li>
+          <%= link_to 'Logout', destroy_user_session_path, method: 'delete' %>
+        </li>
+      <% end %>
+        <% if !user_signed_in? %>
+        <li>
+          <%= link_to 'Login or sign up', new_user_session_path, remote: true%>
+
+        </li>
+        <% end %>
+    </ul>
+  </div>
+</nav>
+<nav class="navbar menu ">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><%= link_to  'Начало', root_path %></li>
+      <li><%= link_to  'Резервация', '#' %></li>
+      <li><%= link_to  'Програма', '#' %></li>
+      <li><%= link_to  'Информация','#' %></li>
+    </ul>
+  </div>
+</nav>

@@ -22,6 +22,7 @@
  }*/
 .navbar {
     background-image: linear-gradient(45deg, #53b52f, #25ff75);
+    margin-bottom: 5px;
 }
 
 a.display:hover {
@@ -38,7 +39,7 @@ a.display:hover {
     height:50px;
     line-height:30px;
     letter-spacing:1px;
-    width:60%;
+    width:100%;
 }
 
 .menu .nav li {
